@@ -1,1 +1,1 @@
-[CV](https://tubyliec.github.io/rsschool-cv/cv)
+[CV](https://tubyliec.github.io/rsschool-cv/)
