@@ -85,8 +85,8 @@ section h2 {
 }
 
 #photo img {
-    width: 250px;
-    border-radius: 800px;
+    width: 200px;
+    border-radius: 20%;
 }
 
 #info {
@@ -106,7 +106,13 @@ section h2 {
 #code pre {
     margin: 10px;
     padding: 10px;
-    background-color: rgb(193, 191, 183);
+    background-color: rgb(22, 22, 21);
+    color: white;
+}
+
+#code details {
+    margin-top: 10px;
+    font-size: larger;
 }
 
 /* Footer */
