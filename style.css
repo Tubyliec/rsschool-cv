@@ -1,0 +1,141 @@
+ /* Global */
+ 
+ * {
+    margin: 0;
+}
+
+.wrapper {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(249,255,0,0.9529061624649859) 0%, rgba(199,166,101,1) 0%, rgba(238,170,51,1) 100%, rgba(195,205,22,1) 100%);
+}
+
+/* Navigation */
+
+.navbar {
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    padding: 20px; 
+}
+.navbar ul {
+    list-style: none;
+}
+.nav-list {
+    display: flex;
+    flex-direction: row;  
+}
+.navbar li {
+    padding-right: 5vw;
+}
+
+.navbar li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+/* Content */
+
+.container {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 15%;
+}
+
+section {
+    margin: 20px;
+}
+
+section h2 {
+    border-bottom: 2px solid black ;
+}
+
+#name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#name ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#name ul li img {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+#name ul li p {
+    display: inline;
+    vertical-align: middle;
+}
+
+#info {
+    line-height: 3em;
+}
+
+#info ul {
+    line-height: 2em;
+}
+
+#photo img {
+    width: 200px;
+    border-radius: 20%;
+}
+
+#info {
+    margin: 20px;
+}
+
+.section ul {
+    margin-top: 15px;
+    font-size: larger;
+}
+
+.section p {
+    margin-top: 15px;
+    font-size: larger;
+}
+
+code {
+    margin: 10px auto;
+    padding: 10px auto;
+    width: 100%;
+    background-color: rgb(22, 22, 21);
+    color: white;
+    text-align: left;
+    word-wrap: break-word;
+    display: block;
+    overflow-x: scrollc;
+}
+
+#code details {
+    margin-top: 10px;
+    font-size: larger;
+}
+
+/* Footer */
+
+footer {
+    display: flex;
+    color: white;
+    background-color: black;
+    justify-content: space-between; 
+    padding: 15px;
+    
+}
+footer img {
+    width: 100px;
+    height: 30px;
+    
+}   
+footer p {
+    font-size: larger;
+    padding: 5px; 
+}
