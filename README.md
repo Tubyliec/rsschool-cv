@@ -1,1 +1,2 @@
-CV repo
+[CV repo](https://Tubyliec.github.io/rsschool-cv/cv
+https://Tubyliec.github.io/rsschool-cv/)
