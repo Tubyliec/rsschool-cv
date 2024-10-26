@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rsschool-cv-html</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="wrapper">
@@ -24,6 +24,9 @@
                         <a href="#languages">Languages</a>
                     </li>
                     <li>
+                        <a href="#Projects">Projects</a>
+                    </li>
+                    <li>
                         <a href="#code">Code example</a>
                     </li>
                 </ul>
@@ -32,38 +35,49 @@
         <div class="container">
             <section class="section" id="name">
                 <div id="photo">
-                    <img src="images/photo.png" alt="photo">
+                    <img src="assets/images/avatar500.png" alt="photo">
                 </div>
                 <div id="info">
                     <h1>Dzmitry Turok</h1>
                     <h3>Future Front-End Developer</h3>
                     <ul>
-                        <li><img src="icons/discord.png" alt="discord logo"><p>antikruk</p></li>
-                        <li><img src="icons/github1.png" alt="GitHub logo"><p>tubyliec</p></li>
+                        <li>
+                            <img src="assets/icons/discord.png" alt="discord logo">
+                            <a href="https://discordapp.com/users/Antikruk#7436/">
+                                antikruk
+                            </a>
+                        </li>
+                        <li>
+                            <img src="assets/icons/github1.png" alt="GitHub logo">
+                            <a href="https://github.com/Tubyliec">
+                                tubyliec
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </section>
             <section class="section" id="about">
                 <h2>About</h2>
-                <p>I am interested in the profession of front-end developer. I want to learn JavaScript. I hope that this course will be useful and help me with this.</p>
+                <p>I am interested in the profession of front-end developer. I want to learn JavaScript. I hope that this course will be useful and help me with it.</p>
             </section>
-            <section class="section" id="skills">
+            <section class="section info" id="skills">
                 <h2>Skills</h2>
                 <ul>
                     <li>HTML</li>
                     <li>CSS</li>
+                    <li>JavaScript</li>
                     <li>Figma</li>
                     <li>Git</li>
                 </ul>
             </section>
-            <section class="section" id="education">
+            <section class="section info" id="education">
                 <h2>Education</h2>
                 <ul>
                     <li>FreeCodeCamp</li>
                     <li>Rolling Scopes</li>
                 </ul>
             </section>
-            <section class="section" id="languages">
+            <section class="section info" id="languages">
                 <h2>Languages</h2>
                 <ul>
                     <li>Belarusian - native</li>
@@ -71,43 +85,72 @@
                     <li>English - A2</li>
                 </ul>
             </section>
-            <section class="section" id="code">
+            <section class="section info" id="Projects">
+                <h2>Projects</h2>
+                <ul>
+                    <li>
+                        <a href="https://tubyliec.github.io/Learning/shelter/pages/main/index.html" target="_blank">Shelter</a>
+                    </li>
+                    <li>
+                        <a href="https://tubyliec.github.io/Learning/image-gallery/index.html" target="_blank">Image gallery</a>
+                    </li>
+                    <li>
+                        <a href="https://tubyliec.github.io/Learning/random-game/index.html" target="_blank">Random game</a>
+                    </li>
+                    <li>
+                        <a href="https://tubyliec.github.io/Learning/audio-player/index.html" target="_blank">Audio player</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="section info" id="code">
                 <h2>Code example</h2>
                 <details>
                     <summary>Example</summary>
                     <pre>
                         <code>
-                            .navbar {
-                                position: fixed;
-                                top: 0;
-                                width: 100%;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                background-color: blueviolet;
-                                height: 8vw;
+                        function moveCaterpillar() {
+
+                            if(caterpillarX == food.x && caterpillarY == food.y) {
+                                score++;
+                                GAME_SCORE_CURRENT.textContent = score;
+                                playAudio(SOUNDS.eat);
+                                food = {
+                                    x: randomNumber(),
+                                    y: randomNumber(),
+                                };
+                            } else {
+                            caterpillar.pop();
+                            };
+                        
+                            if(direction == "left") caterpillarX -= cell;
+                            if(direction == "right") caterpillarX += cell;
+                            if(direction == "up") caterpillarY -= cell;
+                            if(direction == "down") caterpillarY += cell;
+                        
+                            newHead = {
+                                x: caterpillarX,
+                                y: caterpillarY
+                            };
+                        
+                            for(let i = 0; i < caterpillar.length; i++) {
+                                if(newHead.x == caterpillar[i].x && newHead.y == caterpillar[i].y) {
+                                    clearInterval(rendering);
+                                    POPUP_LOSE_WINDOW.classList.add('popup_window_active');
+                                    POPUP_WRAPPER.classList.add('popup_wrapper_active');
+                                    playAudio(SOUNDS.knock);
+                                    playAudio(SOUNDS.fail);
+                                }
+                            };
+                        
+                            caterpillar.unshift(newHead);
+                        
+                            if (score == 200) {
+                                clearInterval(rendering);
+                                POPUP_WIN_WINDOW.classList.add('popup_window_active');
+                                POPUP_WRAPPER.classList.add('popup_wrapper_active');
+                                playAudio(SOUNDS.victory);
                             }
-                            
-                            .nav-list {
-                                display: flex;
-                                flex-direction: row;  
-                            }
-                            
-                            li {
-                                padding-right: 5vw;   
-                            }
-                            li a {
-                                color: white;
-                                text-decoration: none;
-                                font-weight: bolder;
-                                
-                            }
-                            
-                            .container {
-                                display: flex;
-                                flex-direction: column;
-                                justify-content: center;
-                            }
+                        }
                         </code>
                     </pre>
                 </details>
@@ -115,13 +158,13 @@
         </div>
         <footer>
             <a href="https://github.com/Tubyliec">
-                <img src="icons/github.svg" alt="GitHub">
+                <img src="assets/icons/github.svg" alt="GitHub">
             </a>
             <p>
                 2024
             </p>
             <a href="https://rs.school/courses/javascript">
-                <img src="icons/rsschool.svg" alt="Rsschool Icon">
+                <img src="assets/icons/rsschool.svg" alt="Rsschool Icon">
             </a>
         </footer>
     </div>
