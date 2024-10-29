@@ -108,49 +108,31 @@
                     <summary>Example</summary>
                     <pre>
                         <code>
-                        function moveCaterpillar() {
+                            document.querySelector('#form_winner').addEventListener('submit', (e) => {
+                                playerName = document.querySelector('#name_field').value;
 
-                            if(caterpillarX == food.x && caterpillarY == food.y) {
-                                score++;
-                                GAME_SCORE_CURRENT.textContent = score;
-                                playAudio(SOUNDS.eat);
-                                food = {
-                                    x: randomNumber(),
-                                    y: randomNumber(),
-                                };
-                            } else {
-                            caterpillar.pop();
-                            };
-                        
-                            if(direction == "left") caterpillarX -= cell;
-                            if(direction == "right") caterpillarX += cell;
-                            if(direction == "up") caterpillarY -= cell;
-                            if(direction == "down") caterpillarY += cell;
-                        
-                            newHead = {
-                                x: caterpillarX,
-                                y: caterpillarY
-                            };
-                        
-                            for(let i = 0; i < caterpillar.length; i++) {
-                                if(newHead.x == caterpillar[i].x && newHead.y == caterpillar[i].y) {
-                                    clearInterval(rendering);
-                                    POPUP_LOSE_WINDOW.classList.add('popup_window_active');
-                                    POPUP_WRAPPER.classList.add('popup_wrapper_active');
-                                    playAudio(SOUNDS.knock);
-                                    playAudio(SOUNDS.fail);
+                                player.name = playerName;
+                                if (player.name == '') {
+                                    player.name = 'Unknown';
                                 }
-                            };
-                        
-                            caterpillar.unshift(newHead);
-                        
-                            if (score == 200) {
-                                clearInterval(rendering);
-                                POPUP_WIN_WINDOW.classList.add('popup_window_active');
-                                POPUP_WRAPPER.classList.add('popup_wrapper_active');
-                                playAudio(SOUNDS.victory);
-                            }
-                        }
+                                player.score = score;
+
+                                ratingList = JSON.parse(window.localStorage.getItem('ratingList'));
+                                if (!ratingList) {
+                                    ratingList = [];
+                                  }
+                                if (ratingList.length > 1) {
+                                    ratingList.sort(function(a, b) {
+                                    return b.score - a.score;
+                                    });
+                                  }
+                                if (ratingList.length == 10) {
+                                    ratingList = ratingList.slice(0, 9);
+                                  }
+
+                                ratingList.push(player);
+                                window.localStorage.setItem('ratingList', JSON.stringify(ratingList));
+                              });
                         </code>
                     </pre>
                 </details>
