@@ -108,7 +108,7 @@
                     <summary>Example</summary>
                     <pre>
                         <code>
-                            document.querySelector('#form_winner').addEventListener('submit', (e) => {
+                            document.querySelector('#form_winner').addEventListener('submit', (e) =&gt; {
                                 playerName = document.querySelector('#name_field').value;
 
                                 player.name = playerName;
@@ -121,7 +121,7 @@
                                 if (!ratingList) {
                                     ratingList = [];
                                   }
-                                if (ratingList.length > 1) {
+                                if (ratingList.length &gt; 1) {
                                     ratingList.sort(function(a, b) {
                                     return b.score - a.score;
                                     });
